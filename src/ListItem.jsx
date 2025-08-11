@@ -1,6 +1,7 @@
-export const ListItem = ({ completed, title, id, toggleTodo, deleteTodo }) => {
+export const ListItem = ({ completed, title, id, toggleTodo, deleteTodo, updateTodo }) => {
   
-  return(<li className="flex items-center justify-between py-3 px-2 hover:bg-gray-50 transition rounded-lg">
+return (
+  <li className="flex items-center justify-between py-3 px-2 hover:bg-gray-50 transition rounded-lg">
     <label className="flex items-center gap-2">
       <input
         type="checkbox"
@@ -15,12 +16,22 @@ export const ListItem = ({ completed, title, id, toggleTodo, deleteTodo }) => {
       </span>
     </label>
 
-    <button
-      onClick={() => deleteTodo(id)}
-      className="text-purple-500 hover:text-purple-700 transition"
-    >
-      Delete
-    </button>
+    {/* Buttons grouped together */}
+    <div className="flex gap-2">
+      <button
+        onClick={() => updateTodo(id)}
+        className="text-purple-500 hover:text-purple-700 transition cursor-pointer"
+      >
+        ✏️
+      </button>
+      <button
+        onClick={() => deleteTodo(id)}
+        className="text-purple-500 hover:text-purple-700 transition cursor-pointer"
+      >
+        🗑️
+      </button>
+    </div>
   </li>
-  );
+);
+
 };

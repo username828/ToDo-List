@@ -1,6 +1,6 @@
 import { ListItem } from "./ListItem";
 
-export const List = ({ todos, toggleTodo, deleteTodo }) => {
+export const List = ({ todos, toggleTodo, deleteTodo, updateTodo }) => {
   return (
     <ul className="divide-y divide-gray-200">
       {todos.length === 0 ? (
@@ -14,6 +14,7 @@ export const List = ({ todos, toggleTodo, deleteTodo }) => {
             completed={task.completed}
             toggleTodo={toggleTodo}
             deleteTodo={deleteTodo}
+            updateTodo={updateTodo}
           />
         ))
       )}

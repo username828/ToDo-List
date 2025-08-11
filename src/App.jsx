@@ -42,6 +42,21 @@ export default function App() {
       return currentTodos.filter((todo) => todo.id !== id);
     });
   }
+
+  function updateTodo(id){
+    const newtitle=prompt("Enter new title", "New Title");
+    setTodos((currentTodos)=>{
+      const updatedTodos=currentTodos.map((todo)=>
+        todo.id === id ? {...todo, title: newtitle} : todo
+      )
+
+
+      localStorage.setItem("ITEMS", JSON.stringify(updatedTodos));
+      return updatedTodos
+    })
+
+    
+  }
 return (
 <>
   <Navbar />
@@ -59,7 +74,7 @@ return (
       <h1 className="text-2xl font-bold text-center text-gray-800">
         Todo List
       </h1>
-      <List todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+      <List todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} updateTodo={updateTodo}/>
     </div>
 
   </div>
